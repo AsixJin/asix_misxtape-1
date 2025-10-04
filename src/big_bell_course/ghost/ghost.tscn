@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cmxh4qcowhint"]
+
+[ext_resource type="Texture2D" uid="uid://bwhmtkna5qk20" path="res://assets/sprites/characters/ghost/ghost_idle.png" id="1_58kfb"]
+[ext_resource type="Script" uid="uid://uxloc7ykylm5" path="res://src/big_bell_course/ghost/ghost.gd" id="1_fjalx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjalx"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c70r"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elw6h"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivynt"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uadva"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6226h"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rct3w"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubr4r"]
+atlas = ExtResource("1_58kfb")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ca66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjalx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c70r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elw6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivynt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uadva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6226h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rct3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubr4r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjalx"]
+size = Vector2(17, 18)
+
+[node name="Ghost" type="CharacterBody2D"]
+script = ExtResource("1_fjalx")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5ca66")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.8670856
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fjalx")
