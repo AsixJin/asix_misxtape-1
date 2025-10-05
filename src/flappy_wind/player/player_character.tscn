@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://dcenxbaktg82r"]
+[gd_scene load_steps=39 format=3 uid="uid://dcenxbaktg82r"]
 
 [ext_resource type="Texture2D" uid="uid://vpxunewkwwqs" path="res://assets/sprites/characters/hero/hero_base.png" id="1_vrno5"]
+[ext_resource type="Script" uid="uid://dyqt1vajrt4vr" path="res://src/flappy_wind/player/player_character.gd" id="1_wixbr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wixbr"]
 atlas = ExtResource("1_vrno5")
@@ -277,6 +278,7 @@ animations = [{
 size = Vector2(16, 20)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_wixbr")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y81hp")
@@ -287,5 +289,10 @@ frame_progress = 0.71147954
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_vrno5")
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
