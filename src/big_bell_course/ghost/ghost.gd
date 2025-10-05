@@ -15,6 +15,7 @@ enum State {
 @export var descent_speed := 25
 @export var max_flight_speed := 50
 
+@onready var sprite = $Sprite
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("action_1"):
@@ -26,8 +27,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		if Input.is_action_pressed("dpad_right"):
 			velocity.x += acceleration * delta
+			sprite.scale = Vector2(1, 1)
 		elif Input.is_action_pressed("dpad_left"):
 			velocity.x -= acceleration * delta
+			sprite.scale = Vector2(-1, 1)
 		else:
 			velocity.x = move_toward(velocity.x, 0, decleration * delta)
 	else:
