@@ -167,21 +167,21 @@ func _transition_to_state(new_state: State) -> void:
 
 func play_tween_jump() -> void:
 	var tween := create_tween()
-	tween.tween_property(sprite, "scale", Vector2(sprite.scale.x * 1.15, 0.86), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(sprite, "scale", Vector2(sprite.scale.x * 0.86, 1.15), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(sprite, "scale", sprite.scale * Vector2.ONE, 0.15)
+	tween.tween_property(sprite, "scale", Vector2(1.15, 0.86), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(sprite, "scale", Vector2(0.86, 1.15), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(sprite, "scale", Vector2.ONE, 0.15)
 
 func play_tween_touch_ground() -> void:
 	var tween := create_tween()
-	tween.tween_property(sprite, "scale", Vector2(sprite.scale.x * 1.1, 0.9), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(sprite, "scale", Vector2(sprite.scale.x * 0.9, 1.1), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_property(sprite, "scale", sprite.scale * Vector2.ONE, 0.15)
+	tween.tween_property(sprite, "scale", Vector2(1.1, 0.9), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(sprite, "scale", Vector2(0.9, 1.1), 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(sprite, "scale", Vector2.ONE, 0.15)
 
 func flip_sprite():
-	var sprite_x_scale = 1.0 
 	if direction_x < 0.0:
-		sprite_x_scale = -1.0
-	sprite.scale = Vector2(sprite_x_scale, 1.0)
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false 
 	
 func calculate_jump_speed(height: float, time_to_peak: float) -> float:
 	return (-2.0 * height) / time_to_peak
