@@ -24,23 +24,23 @@ func _physics_process(delta: float) -> void:
 		velocity.y += descent_speed * delta
 	velocity.y = clampf(velocity.y, -max_flight_speed, max_flight_speed)
 	
-	if velocity.y < 0:
-		sprite.play("jump")
-	else:
-		sprite.play("falling")
+	#if velocity.y < 0:
+		#sprite.play("jump")
+	#else:
+		#sprite.play("falling")
 	
 	if not is_on_floor():
 		if Input.is_action_pressed("dpad_right"):
 			velocity.x += acceleration * delta
-			sprite.scale = Vector2(1, 1)
+			sprite.flip_h = false
 		elif Input.is_action_pressed("dpad_left"):
 			velocity.x -= acceleration * delta
-			sprite.scale = Vector2(-1, 1)
+			sprite.flip_h = true
 		else:
 			velocity.x = move_toward(velocity.x, 0, decleration * delta)
 	else:
 		velocity.x = 0
-		sprite.play("idle")
+		#sprite.play("idle")
 	velocity.x = clampf(velocity.x, -max_speed, max_speed)
 		
 	move_and_slide()
