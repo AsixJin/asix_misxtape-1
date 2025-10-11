@@ -126,6 +126,7 @@ size = Vector2(17, 18)
 
 [node name="Ghost" type="CharacterBody2D"]
 script = ExtResource("1_fjalx")
+acceleration = 40
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5ca66")
