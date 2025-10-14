@@ -1,17 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://drnkpd7p3nhr2"]
+[gd_scene load_steps=10 format=3 uid="uid://drnkpd7p3nhr2"]
 
+[ext_resource type="Script" uid="uid://byr53osn536wb" path="res://src/trail_network/arena.gd" id="1_aq0wc"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_clfgk"]
 [ext_resource type="Texture2D" uid="uid://cbevk0xbhu0g4" path="res://assets/sprites/tileset/graveyard/grave_background.png" id="1_nup1j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1t457"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_nup1j"]
 [ext_resource type="Texture2D" uid="uid://boyyeumwcg8cc" path="res://assets/sprites/arena/blue_arena.png" id="4_aq0wc"]
 [ext_resource type="Texture2D" uid="uid://dmgmkhgsyu3ng" path="res://assets/sprites/arena/green_arena.png" id="5_6ge3e"]
-[ext_resource type="Texture2D" uid="uid://vpxunewkwwqs" path="res://assets/sprites/characters/hero/hero_base.png" id="6_1t457"]
+[ext_resource type="PackedScene" uid="uid://di1u35jwj6ex7" path="res://src/trail_network/fighters/archer/archer_fighter.tscn" id="8_aq0wc"]
 
 [sub_resource type="Resource" id="Resource_f4sra"]
 script = ExtResource("2_1t457")
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_aq0wc")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.96716005, 0.53566843, 0.2873775, 1)
@@ -64,8 +66,5 @@ texture = ExtResource("5_6ge3e")
 position = Vector2(75, 0)
 texture = ExtResource("5_6ge3e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-37, -2)
-texture = ExtResource("6_1t457")
-region_enabled = true
-region_rect = Rect2(25, 24, 17, 20)
+[node name="ArcherFighter" parent="." instance=ExtResource("8_aq0wc")]
+position = Vector2(-38, -2)

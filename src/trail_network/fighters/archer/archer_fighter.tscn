@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://di1u35jwj6ex7"]
+
+[ext_resource type="Texture2D" uid="uid://bxtjelhhlorod" path="res://assets/sprites/characters/red_dark_archer.png" id="1_05uq2"]
+[ext_resource type="Script" uid="uid://bquopdk5xru8a" path="res://src/trail_network/fighters/archer/archer_fighter.gd" id="1_wsiyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsiyh"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58oan"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olspo"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulvwq"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53d5e"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k2f3"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj7nx"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r4s5"]
+atlas = ExtResource("1_05uq2")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2wd3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsiyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58oan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olspo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulvwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53d5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k2f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj7nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r4s5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="ArcherFighter" type="Node2D"]
+script = ExtResource("1_wsiyh")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w2wd3")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5210681
+speed_scale = 2.0
