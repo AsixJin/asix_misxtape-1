@@ -1,7 +1,61 @@
-extends Node2D
+class_name NetworkArena extends Node2D
  
-var panels := {}
+@onready var panel_marker = $BattleField/Panels
 
+var panels := {}
+var player_fighter : Fighter
+
+func _ready() -> void:
+	create_fighter()
+	create_fighter()
+	
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("dpad_up"):
+		player_fighter.move(Vector2i.UP)
+	elif Input.is_action_just_pressed("dpad_down"):
+		player_fighter.move(Vector2i.DOWN)
+	elif Input.is_action_just_pressed("dpad_left"):
+		player_fighter.move(Vector2i.LEFT)
+	elif Input.is_action_just_pressed("dpad_right"):
+		player_fighter.move(Vector2i.RIGHT)
+
+func create_fighter():
+	var scene = load("res://src/trail_network/fighters/archer/archer_fighter.tscn")
+	var fighter : Fighter = scene.instantiate()
+	fighter.ref_arena = self
+	add_child(fighter)
+	if not player_fighter:
+		player_fighter = fighter
+		fighter.is_challenger = true
+		move_fighter(fighter, Vector2i(1, 1))
+	else:
+		fighter.flip_sprite()
+		move_fighter(fighter, Vector2i(4, 1))
+	
+
+func check_panel(id : String):
+	return panels.get(id, false)
+	
+func move_fighter(fighter : Fighter, new_coords : Vector2i):
+	# Check to see if coords are in bounds
+	if (new_coords.x < 0 or new_coords.x > 5) or (new_coords.y < 0 or new_coords.y > 2):
+		return false
+	# NOTE: I should check if the panel belongs to the fighter (make a panel node)
+	# Check if the panel at new coords is free
+	var new_panel_id = str(new_coords.x, new_coords.y)
+	if not check_panel(new_panel_id):
+		# Remove fighter from previous panel
+		panels.erase(fighter.panel_id)
+		# Add fighter to new panel
+		panels[new_panel_id] = fighter
+		fighter.panel_coords = new_coords
+		# Move the fighterPanel_10
+		var marker = panel_marker.get_child(new_coords.y).get_child(new_coords.x)
+		fighter.position = marker.position
+		return true
+	else:
+		return false
+	
 func _connect_signals(signal_connections: Dictionary) -> void:
 	var signals_from_one_node: Dictionary
 	var target_nodes: Array
