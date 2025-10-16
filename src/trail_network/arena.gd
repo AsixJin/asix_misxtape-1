@@ -19,6 +19,8 @@ func _physics_process(_delta: float) -> void:
 		player_fighter.move(Vector2i.LEFT)
 	elif Input.is_action_just_pressed("dpad_right"):
 		player_fighter.move(Vector2i.RIGHT)
+	elif Input.is_action_just_pressed("action_1"):
+		player_fighter.attack()
 
 func create_fighter():
 	var scene = load("res://src/trail_network/fighters/archer/archer_fighter.tscn")
