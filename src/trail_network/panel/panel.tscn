@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://v65am7i62w4c"]
+
+[ext_resource type="Texture2D" uid="uid://prc28mjjrs1t" path="res://assets/sprites/arena/blue_panel.png" id="1_vbfa4"]
+[ext_resource type="Script" uid="uid://dcqtehqce4uxv" path="res://src/trail_network/panel/panel.gd" id="1_ycpa0"]
+
+[node name="Panel" type="Node2D"]
+script = ExtResource("1_ycpa0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vbfa4")
+
+[node name="Marker" type="Marker2D" parent="."]
+position = Vector2(0, -8)

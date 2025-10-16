@@ -8,8 +8,8 @@ var panel_id : String :
 	get:
 		return str(panel_coords.x, panel_coords.y)
 
-# The challengers are on the left side
-var is_challenger := false
+# The opposing team are on the right side
+var is_opposing_team := true
 
 func move(direction) -> void:
 	var new_coords = panel_coords

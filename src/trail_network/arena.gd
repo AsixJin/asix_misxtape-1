@@ -26,7 +26,7 @@ func create_fighter():
 	add_child(fighter)
 	if not player_fighter:
 		player_fighter = fighter
-		fighter.is_challenger = true
+		fighter.is_opposing_team = true
 		move_fighter(fighter, Vector2i(1, 1))
 	else:
 		fighter.flip_sprite()
