@@ -1,6 +1,6 @@
 class_name NetworkArena extends Node2D
  
-@onready var panel_marker = $BattleField/Panels
+@onready var panel_nodes = $BattleField/Panels
 
 var panels := {}
 var player_fighter : Fighter
@@ -8,6 +8,7 @@ var player_fighter : Fighter
 func _ready() -> void:
 	create_fighter()
 	create_fighter()
+	pass
 	
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("dpad_up"):
@@ -26,13 +27,12 @@ func create_fighter():
 	add_child(fighter)
 	if not player_fighter:
 		player_fighter = fighter
-		fighter.is_opposing_team = true
+		fighter.is_opposing_team = false
+		fighter.flip_sprite()
 		move_fighter(fighter, Vector2i(1, 1))
 	else:
-		fighter.flip_sprite()
 		move_fighter(fighter, Vector2i(4, 1))
 	
-
 func check_panel(id : String):
 	return panels.get(id, false)
 	
@@ -40,21 +40,23 @@ func move_fighter(fighter : Fighter, new_coords : Vector2i):
 	# Check to see if coords are in bounds
 	if (new_coords.x < 0 or new_coords.x > 5) or (new_coords.y < 0 or new_coords.y > 2):
 		return false
-	# NOTE: I should check if the panel belongs to the fighter (make a panel node)
-	# Check if the panel at new coords is free
+	# Get the panel and check if it belongs to fighter
+	var panel : ArenaPanel = panel_nodes.get_child(new_coords.x).get_child(new_coords.y)
+	if fighter.is_opposing_team != panel.is_opposing_panel:
+		return false
+	# Check if the panel is free
 	var new_panel_id = str(new_coords.x, new_coords.y)
-	if not check_panel(new_panel_id):
+	if check_panel(new_panel_id):
+		return false
+	else:
 		# Remove fighter from previous panel
 		panels.erase(fighter.panel_id)
 		# Add fighter to new panel
 		panels[new_panel_id] = fighter
 		fighter.panel_coords = new_coords
-		# Move the fighterPanel_10
-		var marker = panel_marker.get_child(new_coords.y).get_child(new_coords.x)
-		fighter.position = marker.position
+		# Move the fighter
+		fighter.position = panel.get_marker_position()
 		return true
-	else:
-		return false
 	
 func _connect_signals(signal_connections: Dictionary) -> void:
 	var signals_from_one_node: Dictionary

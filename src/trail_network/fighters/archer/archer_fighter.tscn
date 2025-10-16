@@ -76,3 +76,4 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.5210681
 speed_scale = 2.0
+flip_h = true

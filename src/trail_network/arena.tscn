@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://drnkpd7p3nhr2"]
+[gd_scene load_steps=9 format=3 uid="uid://drnkpd7p3nhr2"]
 
 [ext_resource type="Script" uid="uid://byr53osn536wb" path="res://src/trail_network/arena.gd" id="1_aq0wc"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_clfgk"]
 [ext_resource type="Texture2D" uid="uid://cbevk0xbhu0g4" path="res://assets/sprites/tileset/graveyard/grave_background.png" id="1_nup1j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1t457"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_nup1j"]
-[ext_resource type="Texture2D" uid="uid://boyyeumwcg8cc" path="res://assets/sprites/arena/blue_arena.png" id="4_aq0wc"]
-[ext_resource type="Texture2D" uid="uid://dmgmkhgsyu3ng" path="res://assets/sprites/arena/green_arena.png" id="5_6ge3e"]
 [ext_resource type="PackedScene" uid="uid://di1u35jwj6ex7" path="res://src/trail_network/fighters/archer/archer_fighter.tscn" id="8_aq0wc"]
+[ext_resource type="PackedScene" uid="uid://v65am7i62w4c" path="res://src/trail_network/panel/panel.tscn" id="9_6ge3e"]
 
 [sub_resource type="Resource" id="Resource_f4sra"]
 script = ExtResource("2_1t457")
@@ -44,90 +43,85 @@ position = Vector2(-63, 13)
 
 [node name="BattleField" type="Node2D" parent="."]
 
-[node name="PanelSprites" type="Node2D" parent="BattleField"]
-position = Vector2(-37.5, 31.5)
-
-[node name="LeftBack" type="Sprite2D" parent="BattleField/PanelSprites"]
-position = Vector2(0, -34)
-texture = ExtResource("4_aq0wc")
-
-[node name="LeftMiddle" type="Sprite2D" parent="BattleField/PanelSprites"]
-position = Vector2(0, -17)
-texture = ExtResource("4_aq0wc")
-
-[node name="LeftFront" type="Sprite2D" parent="BattleField/PanelSprites"]
-texture = ExtResource("4_aq0wc")
-
-[node name="RightBack" type="Sprite2D" parent="BattleField/PanelSprites"]
-position = Vector2(75, -34)
-texture = ExtResource("5_6ge3e")
-
-[node name="RightMiddle" type="Sprite2D" parent="BattleField/PanelSprites"]
-position = Vector2(75, -17)
-texture = ExtResource("5_6ge3e")
-
-[node name="RightFront" type="Sprite2D" parent="BattleField/PanelSprites"]
-position = Vector2(75, 0)
-texture = ExtResource("5_6ge3e")
-
 [node name="Panels" type="Node2D" parent="BattleField"]
 
-[node name="Panel_Y0" type="Node2D" parent="BattleField/Panels"]
+[node name="Panel_X0" type="Node2D" parent="BattleField/Panels"]
+position = Vector2(-61, 0)
 
-[node name="Panel_00" type="Marker2D" parent="BattleField/Panels/Panel_Y0"]
-position = Vector2(-63, -19)
+[node name="Panel_00" parent="BattleField/Panels/Panel_X0" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, -11)
+is_opposing_panel = false
 
-[node name="Panel_10" type="Marker2D" parent="BattleField/Panels/Panel_Y0"]
-position = Vector2(-38, -19)
+[node name="Panel_01" parent="BattleField/Panels/Panel_X0" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 6)
+is_opposing_panel = false
 
-[node name="Panel_20" type="Marker2D" parent="BattleField/Panels/Panel_Y0"]
-position = Vector2(-13, -19)
+[node name="Panel_02" parent="BattleField/Panels/Panel_X0" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 23)
+is_opposing_panel = false
 
-[node name="Panel_30" type="Marker2D" parent="BattleField/Panels/Panel_Y0"]
-position = Vector2(12, -19)
+[node name="Panel_X1" type="Node2D" parent="BattleField/Panels"]
+position = Vector2(-36, 0)
 
-[node name="Panel_40" type="Marker2D" parent="BattleField/Panels/Panel_Y0"]
-position = Vector2(37, -19)
+[node name="Panel_00" parent="BattleField/Panels/Panel_X1" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, -11)
+is_opposing_panel = false
 
-[node name="Panel_50" type="Marker2D" parent="BattleField/Panels/Panel_Y0"]
-position = Vector2(62, -19)
+[node name="Panel_01" parent="BattleField/Panels/Panel_X1" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 6)
+is_opposing_panel = false
 
-[node name="Panel_Y1" type="Node2D" parent="BattleField/Panels"]
+[node name="Panel_02" parent="BattleField/Panels/Panel_X1" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 23)
+is_opposing_panel = false
 
-[node name="Panel_01" type="Marker2D" parent="BattleField/Panels/Panel_Y1"]
-position = Vector2(-63, -3)
+[node name="Panel_X2" type="Node2D" parent="BattleField/Panels"]
+position = Vector2(-11, 0)
 
-[node name="Panel_11" type="Marker2D" parent="BattleField/Panels/Panel_Y1"]
-position = Vector2(-38, -3)
+[node name="Panel_00" parent="BattleField/Panels/Panel_X2" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, -11)
+is_opposing_panel = false
 
-[node name="Panel_21" type="Marker2D" parent="BattleField/Panels/Panel_Y1"]
-position = Vector2(-13, -3)
+[node name="Panel_01" parent="BattleField/Panels/Panel_X2" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 6)
+is_opposing_panel = false
 
-[node name="Panel_31" type="Marker2D" parent="BattleField/Panels/Panel_Y1"]
-position = Vector2(12, -3)
+[node name="Panel_02" parent="BattleField/Panels/Panel_X2" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 23)
+is_opposing_panel = false
 
-[node name="Panel_41" type="Marker2D" parent="BattleField/Panels/Panel_Y1"]
-position = Vector2(37, -3)
+[node name="Panel_X3" type="Node2D" parent="BattleField/Panels"]
+position = Vector2(14, 0)
 
-[node name="Panel_51" type="Marker2D" parent="BattleField/Panels/Panel_Y1"]
-position = Vector2(62, -3)
+[node name="Panel_00" parent="BattleField/Panels/Panel_X3" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, -11)
 
-[node name="Panel_Y2" type="Node2D" parent="BattleField/Panels"]
+[node name="Panel_01" parent="BattleField/Panels/Panel_X3" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 6)
 
-[node name="Panel_02" type="Marker2D" parent="BattleField/Panels/Panel_Y2"]
-position = Vector2(-63, 13)
+[node name="Panel_02" parent="BattleField/Panels/Panel_X3" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 23)
 
-[node name="Panel_12" type="Marker2D" parent="BattleField/Panels/Panel_Y2"]
-position = Vector2(-38, 13)
+[node name="Panel_X4" type="Node2D" parent="BattleField/Panels"]
+position = Vector2(39, 0)
 
-[node name="Panel_22" type="Marker2D" parent="BattleField/Panels/Panel_Y2"]
-position = Vector2(-13, 13)
+[node name="Panel_00" parent="BattleField/Panels/Panel_X4" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, -11)
 
-[node name="Panel_32" type="Marker2D" parent="BattleField/Panels/Panel_Y2"]
-position = Vector2(12, 13)
+[node name="Panel_01" parent="BattleField/Panels/Panel_X4" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 6)
 
-[node name="Panel_42" type="Marker2D" parent="BattleField/Panels/Panel_Y2"]
-position = Vector2(37, 13)
+[node name="Panel_02" parent="BattleField/Panels/Panel_X4" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 23)
 
-[node name="Panel_52" type="Marker2D" parent="BattleField/Panels/Panel_Y2"]
-position = Vector2(62, 13)
+[node name="Panel_X5" type="Node2D" parent="BattleField/Panels"]
+position = Vector2(64, 0)
+
+[node name="Panel_00" parent="BattleField/Panels/Panel_X5" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, -11)
+
+[node name="Panel_01" parent="BattleField/Panels/Panel_X5" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 6)
+
+[node name="Panel_02" parent="BattleField/Panels/Panel_X5" instance=ExtResource("9_6ge3e")]
+position = Vector2(0, 23)
