@@ -53,8 +53,9 @@ func death():
 func flip_sprite():
 	sprite.flip_h = !sprite.flip_h
 
-# NOTE: I need to find a way to position arrow
-# but not having it move with it's parent (ie this node)
+# NOTE: This works as intended but
+# I think I can implement this a little
+# better but we'll save it for later.
 func spawn_arrow():
 	var scene = load(ARROW_SCENE_PATH)
 	var arrow : Projectile = scene.instantiate()
