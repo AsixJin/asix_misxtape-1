@@ -1,7 +1,7 @@
 class_name Fighter extends Area2D
 
 const ARROW_SCENE_PATH = "res://src/trail_network/projectiles/arrow/arrow_projectile.tscn"
-const ARROW_POSITION_OFFSET = Vector2(-20, 4)
+const ARROW_POSITION_OFFSET = Vector2(20, -4)
 
 @onready var sprite := $Sprite
 
@@ -58,8 +58,9 @@ func flip_sprite():
 func spawn_arrow():
 	var scene = load(ARROW_SCENE_PATH)
 	var arrow : Projectile = scene.instantiate()
-	add_child(arrow)
-	arrow.position = ARROW_POSITION_OFFSET
-	if not is_opposing_team:
-		arrow.position *= (Vector2.LEFT + Vector2.DOWN)
-		arrow.flip_sprite()
+	get_parent().add_child(arrow)
+	if is_opposing_team:
+		arrow.global_position = global_position - ARROW_POSITION_OFFSET
+	else:
+		arrow.global_position = global_position + (ARROW_POSITION_OFFSET * Vector2(1, -1))
+		arrow.rotate(deg_to_rad(180))

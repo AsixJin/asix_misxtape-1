@@ -43,14 +43,16 @@ animations = [{
 size = Vector2(14, 3)
 
 [node name="ArrowProjectile" type="Area2D"]
+rotation = 3.1415927
 script = ExtResource("1_cowqb")
+speed = 50
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tskth")
 autoplay = "default"
 frame_progress = 0.3248552
 speed_scale = 2.0
-flip_h = true
+offset = Vector2(0, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

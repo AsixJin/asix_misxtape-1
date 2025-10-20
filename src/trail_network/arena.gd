@@ -34,7 +34,7 @@ func create_fighter():
 		move_fighter(fighter, Vector2i(1, 1))
 	else:
 		move_fighter(fighter, Vector2i(4, 1))
-	
+		
 func check_panel(id : String):
 	return panels.get(id, false)
 	
