@@ -3,35 +3,22 @@ class_name NetworkArena extends Node2D
 @onready var panel_nodes = $BattleField/Panels
 
 var panels := {}
-var player_fighter : Fighter
 
 func _ready() -> void:
-	create_fighter()
+	create_fighter(true)
 	create_fighter()
 	pass
 	
-func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("dpad_up"):
-		player_fighter.move(Vector2i.UP)
-	elif Input.is_action_just_pressed("dpad_down"):
-		player_fighter.move(Vector2i.DOWN)
-	elif Input.is_action_just_pressed("dpad_left"):
-		player_fighter.move(Vector2i.LEFT)
-	elif Input.is_action_just_pressed("dpad_right"):
-		player_fighter.move(Vector2i.RIGHT)
-	elif Input.is_action_just_pressed("action_1"):
-		player_fighter.attack()
-
-func create_fighter():
+func create_fighter(is_player = false):
 	var scene = load("res://src/trail_network/fighters/archer/archer_fighter.tscn")
 	var fighter : Fighter = scene.instantiate()
 	fighter.ref_arena = self
 	add_child(fighter)
-	if not player_fighter:
-		player_fighter = fighter
+	if is_player:
 		fighter.is_opposing_team = false
 		fighter.flip_sprite()
 		move_fighter(fighter, Vector2i(1, 1))
+		fighter.add_child(FighterController.new())
 	else:
 		move_fighter(fighter, Vector2i(4, 1))
 		

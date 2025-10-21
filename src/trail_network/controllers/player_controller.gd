@@ -1,0 +1,51 @@
+class_name FighterController extends Node
+
+enum State {
+	IDLE,
+	ATTACK,
+	HURT,
+	DEATH
+}
+
+var fighter : Fighter
+var current_state := State.IDLE
+
+func _ready() -> void:
+	if get_parent() is Fighter:
+		fighter = get_parent()
+	else:
+		print("Parent is not a Fighhter...")
+		queue_free()
+		return
+		
+func _process(delta: float) -> void:
+	match current_state:
+		State.IDLE:
+			_process_idle_state(delta)
+			
+func _process_idle_state(_delta: float) -> void:
+	if Input.is_action_just_pressed("dpad_up"):
+		fighter.move(Vector2i.UP)
+	elif Input.is_action_just_pressed("dpad_down"):
+		fighter.move(Vector2i.DOWN)
+	elif Input.is_action_just_pressed("dpad_left"):
+		fighter.move(Vector2i.LEFT)
+	elif Input.is_action_just_pressed("dpad_right"):
+		fighter.move(Vector2i.RIGHT)
+		
+	if Input.is_action_just_pressed("action_1"):
+		transition_state(State.ATTACK)
+		fighter.attack()
+		
+func transition_state(new_state:State) -> void:
+	var prev_state = current_state
+	
+	match prev_state:
+		_:
+			pass
+			
+	current_state = new_state
+	match current_state:
+		State.ATTACK:
+			await fighter.attack()
+			transition_state(State.IDLE)
