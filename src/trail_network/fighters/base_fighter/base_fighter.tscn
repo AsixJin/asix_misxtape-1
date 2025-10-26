@@ -76,7 +76,7 @@ script = ExtResource("1_gavak")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_opxny")
 animation = &"idle"
-offset = Vector2(0, 0.5)
+offset = Vector2(-1, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

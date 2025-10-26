@@ -52,6 +52,7 @@ func death():
 	
 func flip_sprite():
 	sprite.flip_h = !sprite.flip_h
+	sprite.offset = Vector2(0 if sprite.flip_h else -1, 0.5)
 
 # NOTE: This works as intended but
 # I think I can implement this a little
