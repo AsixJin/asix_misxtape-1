@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://cmxh4qcowhint"]
 
-[ext_resource type="Texture2D" uid="uid://bwhmtkna5qk20" path="res://assets/sprites/characters/ghost/ghost_idle.png" id="1_58kfb"]
+[ext_resource type="Texture2D" uid="uid://bwhmtkna5qk20" path="res://assets/sprites/dagon/characters/ghost/ghost_idle.png" id="1_58kfb"]
 [ext_resource type="Script" uid="uid://uxloc7ykylm5" path="res://src/big_bell_course/ghost/ghost.gd" id="1_fjalx"]
-[ext_resource type="Texture2D" uid="uid://xh4v26ljyrt4" path="res://assets/sprites/characters/ghost/ghost_falling.png" id="2_elw6h"]
-[ext_resource type="Texture2D" uid="uid://drqs0pdrhqpx2" path="res://assets/sprites/characters/ghost/ghost_jumping.png" id="4_ivynt"]
+[ext_resource type="Texture2D" uid="uid://xh4v26ljyrt4" path="res://assets/sprites/dagon/characters/ghost/ghost_falling.png" id="2_elw6h"]
+[ext_resource type="Texture2D" uid="uid://drqs0pdrhqpx2" path="res://assets/sprites/dagon/characters/ghost/ghost_jumping.png" id="4_ivynt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ca66"]
 atlas = ExtResource("2_elw6h")

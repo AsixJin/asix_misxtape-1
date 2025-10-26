@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://cogphgmqlmsyk"]
+
+[ext_resource type="Script" uid="uid://bquopdk5xru8a" path="res://src/trail_network/fighters/archer/archer_fighter.gd" id="1_gavak"]
+[ext_resource type="Texture2D" uid="uid://cgvxiquw4pgye" path="res://assets/sprites/minifantasy/characters/human/palm/idle.png" id="1_qoru8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gavak"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eagqu"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyrjt"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei7tu"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yctui"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj2b2"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4txn"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baoas"]
+atlas = ExtResource("1_qoru8")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opxny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gavak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eagqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyrjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei7tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yctui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj2b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4txn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baoas")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qoru8"]
+size = Vector2(4, 4)
+
+[node name="BaseFighter" type="Area2D"]
+script = ExtResource("1_gavak")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_opxny")
+animation = &"idle"
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_qoru8")

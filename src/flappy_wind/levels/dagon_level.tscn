@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_5ew6f"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_ud6vk"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_gy71s"]
-[ext_resource type="Texture2D" uid="uid://bn8044vprh3y0" path="res://assets/sprites/tileset/forest/forest_background.png" id="4_2l80o"]
+[ext_resource type="Texture2D" uid="uid://bn8044vprh3y0" path="res://assets/sprites/dagon/tileset/forest/forest_background.png" id="4_2l80o"]
 [ext_resource type="TileSet" uid="uid://c44blpnmmh618" path="res://assets/tilesets/forest.tres" id="5_0qq8h"]
 [ext_resource type="PackedScene" uid="uid://dcenxbaktg82r" path="res://src/flappy_wind/player/player_character.tscn" id="5_2l80o"]
 

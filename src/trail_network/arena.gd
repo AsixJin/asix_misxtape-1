@@ -10,7 +10,7 @@ func _ready() -> void:
 	pass
 	
 func create_fighter(is_player = false):
-	var scene = load("res://src/trail_network/fighters/archer/archer_fighter.tscn")
+	var scene = load("res://src/trail_network/fighters/base_fighter/base_fighter.tscn")
 	var fighter : Fighter = scene.instantiate()
 	fighter.ref_arena = self
 	add_child(fighter)

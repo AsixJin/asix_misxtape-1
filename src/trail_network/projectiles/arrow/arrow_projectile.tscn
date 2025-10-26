@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqoy5dgncq33o"]
 
 [ext_resource type="Script" uid="uid://dffnv6uvnv0hh" path="res://src/trail_network/projectiles/arrow/arrow_projectile.gd" id="1_cowqb"]
-[ext_resource type="Texture2D" uid="uid://dia6bqbuvn2ui" path="res://assets/sprites/arrow_projectile.png" id="1_ov3bg"]
+[ext_resource type="Texture2D" uid="uid://dia6bqbuvn2ui" path="res://assets/sprites/dagon/arrow_projectile.png" id="1_ov3bg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cowqb"]
 atlas = ExtResource("1_ov3bg")

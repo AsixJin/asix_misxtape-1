@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://drnkpd7p3nhr2"]
+[gd_scene load_steps=8 format=3 uid="uid://drnkpd7p3nhr2"]
 
 [ext_resource type="Script" uid="uid://byr53osn536wb" path="res://src/trail_network/arena.gd" id="1_aq0wc"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_clfgk"]
-[ext_resource type="Texture2D" uid="uid://cbevk0xbhu0g4" path="res://assets/sprites/tileset/graveyard/grave_background.png" id="1_nup1j"]
+[ext_resource type="Texture2D" uid="uid://cbevk0xbhu0g4" path="res://assets/sprites/dagon/tileset/graveyard/grave_background.png" id="1_nup1j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1t457"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_nup1j"]
-[ext_resource type="PackedScene" uid="uid://di1u35jwj6ex7" path="res://src/trail_network/fighters/archer/archer_fighter.tscn" id="8_aq0wc"]
 [ext_resource type="PackedScene" uid="uid://v65am7i62w4c" path="res://src/trail_network/panel/panel.tscn" id="9_6ge3e"]
 
 [sub_resource type="Resource" id="Resource_f4sra"]
@@ -16,7 +15,8 @@ script = ExtResource("1_aq0wc")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.96716005, 0.53566843, 0.2873775, 1)
-position = Vector2(12, 24)
+position = Vector2(6.556511e-07, -7.748604e-07)
+scale = Vector2(0.25, 0.25555554)
 texture = ExtResource("1_nup1j")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
@@ -24,12 +24,12 @@ top_level = true
 script = ExtResource("1_clfgk")
 follow_mode = 2
 follow_target = NodePath("../BattleField")
-zoom = Vector2(6, 6)
+zoom = Vector2(16, 16)
 tween_resource = SubResource("Resource_f4sra")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
+zoom = Vector2(16, 16)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -37,19 +37,15 @@ process_physics_priority = 300
 script = ExtResource("3_nup1j")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="ArcherFighter" parent="." instance=ExtResource("8_aq0wc")]
-visible = false
-position = Vector2(-63, 13)
-
 [node name="BattleField" type="Node2D" parent="."]
 
 [node name="Panels" type="Node2D" parent="BattleField"]
 
 [node name="Panel_X0" type="Node2D" parent="BattleField/Panels"]
-position = Vector2(-61, 0)
+position = Vector2(-23, 0)
 
 [node name="Panel_00" parent="BattleField/Panels/Panel_X0" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, -11)
+position = Vector2(0, 1)
 is_opposing_panel = false
 
 [node name="Panel_01" parent="BattleField/Panels/Panel_X0" instance=ExtResource("9_6ge3e")]
@@ -57,14 +53,14 @@ position = Vector2(0, 6)
 is_opposing_panel = false
 
 [node name="Panel_02" parent="BattleField/Panels/Panel_X0" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, 23)
+position = Vector2(0, 11)
 is_opposing_panel = false
 
 [node name="Panel_X1" type="Node2D" parent="BattleField/Panels"]
-position = Vector2(-36, 0)
+position = Vector2(-14, 0)
 
 [node name="Panel_00" parent="BattleField/Panels/Panel_X1" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, -11)
+position = Vector2(0, 1)
 is_opposing_panel = false
 
 [node name="Panel_01" parent="BattleField/Panels/Panel_X1" instance=ExtResource("9_6ge3e")]
@@ -72,14 +68,14 @@ position = Vector2(0, 6)
 is_opposing_panel = false
 
 [node name="Panel_02" parent="BattleField/Panels/Panel_X1" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, 23)
+position = Vector2(0, 11)
 is_opposing_panel = false
 
 [node name="Panel_X2" type="Node2D" parent="BattleField/Panels"]
-position = Vector2(-11, 0)
+position = Vector2(-5, 0)
 
 [node name="Panel_00" parent="BattleField/Panels/Panel_X2" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, -11)
+position = Vector2(0, 1)
 is_opposing_panel = false
 
 [node name="Panel_01" parent="BattleField/Panels/Panel_X2" instance=ExtResource("9_6ge3e")]
@@ -87,41 +83,41 @@ position = Vector2(0, 6)
 is_opposing_panel = false
 
 [node name="Panel_02" parent="BattleField/Panels/Panel_X2" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, 23)
+position = Vector2(0, 11)
 is_opposing_panel = false
 
 [node name="Panel_X3" type="Node2D" parent="BattleField/Panels"]
-position = Vector2(14, 0)
+position = Vector2(4, 0)
 
 [node name="Panel_00" parent="BattleField/Panels/Panel_X3" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, -11)
+position = Vector2(0, 1)
 
 [node name="Panel_01" parent="BattleField/Panels/Panel_X3" instance=ExtResource("9_6ge3e")]
 position = Vector2(0, 6)
 
 [node name="Panel_02" parent="BattleField/Panels/Panel_X3" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, 23)
+position = Vector2(0, 11)
 
 [node name="Panel_X4" type="Node2D" parent="BattleField/Panels"]
-position = Vector2(39, 0)
+position = Vector2(13, 0)
 
 [node name="Panel_00" parent="BattleField/Panels/Panel_X4" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, -11)
+position = Vector2(0, 1)
 
 [node name="Panel_01" parent="BattleField/Panels/Panel_X4" instance=ExtResource("9_6ge3e")]
 position = Vector2(0, 6)
 
 [node name="Panel_02" parent="BattleField/Panels/Panel_X4" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, 23)
+position = Vector2(0, 11)
 
 [node name="Panel_X5" type="Node2D" parent="BattleField/Panels"]
-position = Vector2(64, 0)
+position = Vector2(22, 0)
 
 [node name="Panel_00" parent="BattleField/Panels/Panel_X5" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, -11)
+position = Vector2(0, 1)
 
 [node name="Panel_01" parent="BattleField/Panels/Panel_X5" instance=ExtResource("9_6ge3e")]
 position = Vector2(0, 6)
 
 [node name="Panel_02" parent="BattleField/Panels/Panel_X5" instance=ExtResource("9_6ge3e")]
-position = Vector2(0, 23)
+position = Vector2(0, 11)

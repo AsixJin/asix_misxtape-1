@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://di1u35jwj6ex7"]
 
-[ext_resource type="Texture2D" uid="uid://bxtjelhhlorod" path="res://assets/sprites/characters/red_dark_archer.png" id="1_05uq2"]
+[ext_resource type="Texture2D" uid="uid://bxtjelhhlorod" path="res://assets/sprites/dagon/characters/red_dark_archer.png" id="1_05uq2"]
 [ext_resource type="Script" uid="uid://bquopdk5xru8a" path="res://src/trail_network/fighters/archer/archer_fighter.gd" id="1_wsiyh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2wd3"]

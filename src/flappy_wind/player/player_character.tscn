@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://dcenxbaktg82r"]
 
-[ext_resource type="Texture2D" uid="uid://vpxunewkwwqs" path="res://assets/sprites/characters/hero/hero_base.png" id="1_vrno5"]
+[ext_resource type="Texture2D" uid="uid://vpxunewkwwqs" path="res://assets/sprites/dagon/characters/hero/hero_base.png" id="1_vrno5"]
 [ext_resource type="Script" uid="uid://dyqt1vajrt4vr" path="res://src/flappy_wind/player/player_character.gd" id="1_wixbr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wixbr"]
