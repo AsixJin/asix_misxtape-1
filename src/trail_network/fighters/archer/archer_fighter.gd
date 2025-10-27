@@ -1,7 +1,7 @@
 class_name Fighter extends Area2D
 
 const ARROW_SCENE_PATH = "res://src/trail_network/projectiles/arrow/arrow_projectile.tscn"
-const ARROW_POSITION_OFFSET = Vector2(20, -4)
+const ARROW_POSITION_OFFSET = Vector2(6, -1)
 
 @onready var sprite := $Sprite
 

@@ -1,38 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqoy5dgncq33o"]
+[gd_scene load_steps=6 format=3 uid="uid://dqoy5dgncq33o"]
 
 [ext_resource type="Script" uid="uid://dffnv6uvnv0hh" path="res://src/trail_network/projectiles/arrow/arrow_projectile.gd" id="1_cowqb"]
-[ext_resource type="Texture2D" uid="uid://dia6bqbuvn2ui" path="res://assets/sprites/dagon/arrow_projectile.png" id="1_ov3bg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cowqb"]
-atlas = ExtResource("1_ov3bg")
-region = Rect2(0, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://bm16akv1lcfcj" path="res://assets/sprites/minifantasy/misc/arrow_projectile.png" id="2_cowqb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dx6k"]
-atlas = ExtResource("1_ov3bg")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_477og"]
-atlas = ExtResource("1_ov3bg")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j841l"]
-atlas = ExtResource("1_ov3bg")
-region = Rect2(48, 0, 16, 16)
+atlas = ExtResource("2_cowqb")
+region = Rect2(48, 38, 48, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tskth"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cowqb")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_2dx6k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_477og")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j841l")
 }],
 "loop": true,
 "name": &"default",
@@ -40,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov3bg"]
-size = Vector2(14, 3)
+size = Vector2(7, 3)
 
 [node name="ArrowProjectile" type="Area2D"]
 rotation = 3.1415927
@@ -52,11 +31,9 @@ sprite_frames = SubResource("SpriteFrames_tskth")
 autoplay = "default"
 frame_progress = 0.3248552
 speed_scale = 2.0
-offset = Vector2(0, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -0.5)
+position = Vector2(7.5, 0)
 shape = SubResource("RectangleShape2D_ov3bg")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
