@@ -3,6 +3,9 @@ class_name Fighter extends Area2D
 const ARROW_SCENE_PATH = "res://src/trail_network/projectiles/arrow/arrow_projectile.tscn"
 const ARROW_POSITION_OFFSET = Vector2(6, -1)
 
+const SHARD_SCENE_PATH = "res://src/trail_network/projectiles/ice_shard/ice_shard.tscn"
+const SHARD_POSITION_OFFSET = Vector2(6, -1)
+
 @onready var sprite := $Sprite
 
 var ref_arena : NetworkArena
@@ -16,6 +19,9 @@ var is_opposing_team := true
 
 var health := 3
 
+func play_animation(anim_name):
+	sprite.play(anim_name)
+	
 func move(direction) -> void:
 	var new_coords = panel_coords
 	match direction:
@@ -31,24 +37,29 @@ func move(direction) -> void:
 	var _move_successful = ref_arena.move_fighter(self, new_coords)
 	
 func attack():
-	sprite.play("attack")
+	play_animation("attack")
 	await sprite.animation_finished
 	spawn_arrow()
 	
+func throw_magic():
+	play_animation("throw_magic")
+	await sprite.animation_finished
+	spawn_magic()
+	
 func start_charge():
-	sprite.play("charge")
+	play_animation("charge")
 	
 func take_damage():
 	health -= 1
 	if health <= 0:
 		death()
 	else:
-		sprite.play("hurt")
+		play_animation("hurt")
 		await sprite.animation_finished
-		sprite.play("idle")
+		play_animation("idle")
 	
 func death():
-	sprite.play("death")
+	play_animation("death")
 	await sprite.animation_finished
 	queue_free()
 	
@@ -68,3 +79,13 @@ func spawn_arrow():
 	else:
 		arrow.global_position = global_position + (ARROW_POSITION_OFFSET * Vector2(1, -1))
 		arrow.rotate(deg_to_rad(180))
+		
+func spawn_magic():
+	var scene = load(ARROW_SCENE_PATH)
+	var shard : Projectile = scene.instantiate()
+	get_parent().add_child(shard)
+	if is_opposing_team:
+		shard.global_position = global_position - SHARD_POSITION_OFFSET
+	else:
+		shard.global_position = global_position + (SHARD_POSITION_OFFSET * Vector2(1, -1))
+		shard.rotate(deg_to_rad(180))

@@ -154,19 +154,19 @@ region = Rect2(224, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2j04f"]
 atlas = ExtResource("7_nj2b2")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wah7"]
 atlas = ExtResource("7_nj2b2")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yphsi"]
 atlas = ExtResource("7_nj2b2")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdqb0"]
 atlas = ExtResource("7_nj2b2")
-region = Rect2(96, 0, 32, 32)
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_opxny"]
 animations = [{
@@ -331,6 +331,8 @@ script = ExtResource("1_gavak")
 sprite_frames = SubResource("SpriteFrames_opxny")
 animation = &"throw_magic"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 speed_scale = 2.0
 offset = Vector2(-1, 0.5)
 

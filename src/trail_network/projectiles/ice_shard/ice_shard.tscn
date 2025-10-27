@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvc82eb4ak2bn"]
+
+[ext_resource type="Script" uid="uid://dffnv6uvnv0hh" path="res://src/trail_network/projectiles/arrow/arrow_projectile.gd" id="1_q7ou8"]
+[ext_resource type="Texture2D" uid="uid://codnnhbqt6k6g" path="res://assets/sprites/minifantasy/misc/ice_shard.png" id="2_y81j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3twc"]
+size = Vector2(16, 5)
+
+[node name="IceShard" type="Area2D"]
+script = ExtResource("1_q7ou8")
+speed = 400
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_y81j3")
+region_enabled = true
+region_rect = Rect2(80, 46, 16, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c3twc")
