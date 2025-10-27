@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://cogphgmqlmsyk"]
+[gd_scene load_steps=45 format=3 uid="uid://cogphgmqlmsyk"]
 
 [ext_resource type="Script" uid="uid://bquopdk5xru8a" path="res://src/trail_network/fighters/archer/archer_fighter.gd" id="1_gavak"]
 [ext_resource type="Texture2D" uid="uid://cgvxiquw4pgye" path="res://assets/sprites/minifantasy/characters/human/palm/idle.png" id="1_qoru8"]
 [ext_resource type="Texture2D" uid="uid://dylp8haj6fewa" path="res://assets/sprites/minifantasy/characters/human/palm/bow_attack.png" id="2_eagqu"]
 [ext_resource type="Texture2D" uid="uid://coteeieqm7e8r" path="res://assets/sprites/minifantasy/characters/human/palm/souldie.png" id="3_ei7tu"]
 [ext_resource type="Texture2D" uid="uid://chevudsux8vi3" path="res://assets/sprites/minifantasy/characters/human/palm/dmg.png" id="3_uyrjt"]
+[ext_resource type="Texture2D" uid="uid://bb3tc7f8bxacm" path="res://assets/sprites/minifantasy/characters/human/palm/charge_magic.png" id="3_yctui"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8o0g"]
 atlas = ExtResource("2_eagqu")
@@ -37,6 +38,22 @@ region = Rect2(192, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n200"]
 atlas = ExtResource("2_eagqu")
 region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5qrf"]
+atlas = ExtResource("3_yctui")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g6ts"]
+atlas = ExtResource("3_yctui")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqhck"]
+atlas = ExtResource("3_yctui")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhcol"]
+atlas = ExtResource("3_yctui")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysvxo"]
 atlas = ExtResource("3_ei7tu")
@@ -167,6 +184,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_u5qrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g6ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqhck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhcol")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ysvxo")
 }, {
 "duration": 1.0,
@@ -261,10 +295,9 @@ script = ExtResource("1_gavak")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_opxny")
-animation = &"death"
+animation = &"charge"
 autoplay = "idle"
-frame = 11
-frame_progress = 1.0
+frame_progress = 0.6238001
 speed_scale = 2.0
 offset = Vector2(-1, 0.5)
 

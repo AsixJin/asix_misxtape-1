@@ -34,7 +34,9 @@ func attack():
 	sprite.play("attack")
 	await sprite.animation_finished
 	spawn_arrow()
-	sprite.play("idle")
+	
+func start_charge():
+	sprite.play("charge")
 	
 func take_damage():
 	health -= 1
