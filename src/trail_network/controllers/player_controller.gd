@@ -10,6 +10,7 @@ enum State {
 
 var fighter : Fighter
 var current_state := State.IDLE
+var charge_time := 0.0
 
 func _ready() -> void:
 	if get_parent() is Fighter:
@@ -42,9 +43,9 @@ func _process_idle_state(_delta: float) -> void:
 	if Input.is_action_just_pressed("action_2"):
 		transition_state(State.CHARGE)
 		
-func _process_charge_state(_delta):
+func _process_charge_state(delta):
 	if Input.is_action_pressed("action_2"):
-		pass
+		charge_time += delta
 	else:
 		transition_state(State.IDLE)
 	
