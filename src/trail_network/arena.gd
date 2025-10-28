@@ -3,6 +3,7 @@ class_name NetworkArena extends Node2D
 @onready var panel_nodes = $BattleField/Panels
 
 var panels := {}
+var player_fighter : Fighter
 
 func _ready() -> void:
 	create_fighter(true)
@@ -19,8 +20,10 @@ func create_fighter(is_player = false):
 		fighter.flip_sprite()
 		move_fighter(fighter, Vector2i(1, 1))
 		fighter.add_child(FighterController.new())
+		player_fighter = fighter
 	else:
 		move_fighter(fighter, Vector2i(4, 1))
+		fighter.add_child(EnemyController.new())
 		
 func check_panel(id : String):
 	return panels.get(id, false)

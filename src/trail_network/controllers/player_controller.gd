@@ -1,27 +1,8 @@
-class_name FighterController extends Node
+class_name FighterController extends BaseController
 
 const MIN_CHARGE_TIME = 2.0
 
-enum State {
-	IDLE,
-	ATTACK,
-	MAGIC_ATTACK,
-	CHARGE,
-	HURT,
-	DEATH
-}
-
-var fighter : Fighter
-var current_state := State.IDLE
 var charge_time := 0.0
-
-func _ready() -> void:
-	if get_parent() is Fighter:
-		fighter = get_parent()
-	else:
-		print("Parent is not a Fighhter...")
-		queue_free()
-		return
 		
 func _process(delta: float) -> void:
 	match current_state:
@@ -42,7 +23,6 @@ func _process_idle_state(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("action_1"):
 		transition_state(State.ATTACK)
-		fighter.attack()
 	if Input.is_action_just_pressed("action_2"):
 		transition_state(State.CHARGE)
 		
@@ -51,7 +31,6 @@ func _process_charge_state(delta):
 		charge_time += delta
 	elif Input.is_action_just_released("action_2"):
 		if charge_time >= MIN_CHARGE_TIME:
-			print("You've charged enough my G...")
 			await fighter.throw_magic()
 		print(str("Charge Time: ", charge_time))
 		transition_state(State.IDLE)

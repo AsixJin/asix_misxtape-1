@@ -4,7 +4,7 @@ class_name Projectile extends Area2D
 
 @export var speed := 750
 
-var max_range := 200.0
+var max_range := 800.0
 
 var _traveled_distance = 0.0
 

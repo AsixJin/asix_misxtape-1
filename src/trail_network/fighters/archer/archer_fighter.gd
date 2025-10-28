@@ -1,10 +1,10 @@
 class_name Fighter extends Area2D
 
 const ARROW_SCENE_PATH = "res://src/trail_network/projectiles/arrow/arrow_projectile.tscn"
-const ARROW_POSITION_OFFSET = Vector2(6, -1)
+const ARROW_POSITION_OFFSET = Vector2(14, -1)
 
 const SHARD_SCENE_PATH = "res://src/trail_network/projectiles/ice_shard/ice_shard.tscn"
-const SHARD_POSITION_OFFSET = Vector2(6, -1)
+const SHARD_POSITION_OFFSET = Vector2(24, -1)
 
 @onready var sprite := $Sprite
 
@@ -19,8 +19,10 @@ var is_opposing_team := true
 
 var health := 3
 
-func play_animation(anim_name):
+func play_animation(anim_name, await_animation = false):
 	sprite.play(anim_name)
+	if await_animation:
+		await sprite.animation_finished
 	
 func move(direction) -> void:
 	var new_coords = panel_coords
@@ -37,13 +39,12 @@ func move(direction) -> void:
 	var _move_successful = ref_arena.move_fighter(self, new_coords)
 	
 func attack():
-	play_animation("attack")
-	await sprite.animation_finished
+	await play_animation("attack", true)
 	spawn_arrow()
+	await play_animation("release_bow", true)
 	
 func throw_magic():
-	play_animation("throw_magic")
-	await sprite.animation_finished
+	await play_animation("throw_magic", true)
 	spawn_magic()
 	
 func start_charge():
@@ -54,13 +55,11 @@ func take_damage():
 	if health <= 0:
 		death()
 	else:
-		play_animation("hurt")
-		await sprite.animation_finished
+		await play_animation("hurt", true)
 		play_animation("idle")
 	
 func death():
-	play_animation("death")
-	await sprite.animation_finished
+	await play_animation("death", true)
 	queue_free()
 	
 func flip_sprite():

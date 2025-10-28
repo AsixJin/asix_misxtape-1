@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://byr53osn536wb" path="res://src/trail_network/arena.gd" id="1_aq0wc"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_clfgk"]
-[ext_resource type="Texture2D" uid="uid://cbevk0xbhu0g4" path="res://assets/sprites/dagon/tileset/graveyard/grave_background.png" id="1_nup1j"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1t457"]
+[ext_resource type="Texture2D" uid="uid://cc8c0w5jeioy6" path="res://assets/sprites/dagon/tileset/graveyard/pixelated_grave_background.png" id="2_nup1j"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_nup1j"]
 [ext_resource type="PackedScene" uid="uid://v65am7i62w4c" path="res://src/trail_network/panel/panel.tscn" id="9_6ge3e"]
 
@@ -15,21 +15,21 @@ script = ExtResource("1_aq0wc")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.96716005, 0.53566843, 0.2873775, 1)
-position = Vector2(6.556511e-07, -7.748604e-07)
-scale = Vector2(0.25, 0.25555554)
-texture = ExtResource("1_nup1j")
+position = Vector2(3.5, 3)
+scale = Vector2(0.57812506, 0.57777774)
+texture = ExtResource("2_nup1j")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
 script = ExtResource("1_clfgk")
 follow_mode = 2
 follow_target = NodePath("../BattleField")
-zoom = Vector2(16, 16)
+zoom = Vector2(14, 14)
 tween_resource = SubResource("Resource_f4sra")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(16, 16)
+zoom = Vector2(14, 14)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300

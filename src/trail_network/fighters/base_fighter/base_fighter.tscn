@@ -32,14 +32,6 @@ region = Rect2(128, 32, 32, 32)
 atlas = ExtResource("2_eagqu")
 region = Rect2(160, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2oj3j"]
-atlas = ExtResource("2_eagqu")
-region = Rect2(192, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7n200"]
-atlas = ExtResource("2_eagqu")
-region = Rect2(224, 32, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5qrf"]
 atlas = ExtResource("3_yctui")
 region = Rect2(0, 0, 32, 32)
@@ -152,6 +144,14 @@ region = Rect2(192, 32, 32, 32)
 atlas = ExtResource("1_qoru8")
 region = Rect2(224, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oj3j"]
+atlas = ExtResource("2_eagqu")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n200"]
+atlas = ExtResource("2_eagqu")
+region = Rect2(224, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2j04f"]
 atlas = ExtResource("7_nj2b2")
 region = Rect2(0, 32, 32, 32)
@@ -188,12 +188,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hlax5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2oj3j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7n200")
 }],
 "loop": false,
 "name": &"attack",
@@ -305,6 +299,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2oj3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n200")
+}],
+"loop": false,
+"name": &"release_bow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2j04f")
 }, {
 "duration": 1.0,
@@ -329,10 +334,8 @@ script = ExtResource("1_gavak")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_opxny")
-animation = &"throw_magic"
+animation = &"release_bow"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 speed_scale = 2.0
 offset = Vector2(-1, 0.5)
 
