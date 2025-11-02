@@ -6,6 +6,7 @@ const ARROW_POSITION_OFFSET = Vector2(14, -1)
 const SHARD_SCENE_PATH = "res://src/trail_network/projectiles/ice_shard/ice_shard.tscn"
 const SHARD_POSITION_OFFSET = Vector2(24, -1)
 
+@onready var controller : BaseController
 @onready var sprite := $Sprite
 
 var ref_arena : NetworkArena
@@ -51,14 +52,15 @@ func start_charge():
 	play_animation("charge")
 	
 func take_damage():
+	await play_animation("hurt", true)
 	health -= 1
 	if health <= 0:
 		death()
 	else:
-		await play_animation("hurt", true)
 		play_animation("idle")
 	
 func death():
+	controller.queue_free()
 	await play_animation("death", true)
 	queue_free()
 	

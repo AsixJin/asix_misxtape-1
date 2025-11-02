@@ -33,3 +33,5 @@ func transition_state(new_state:State) -> void:
 		State.ATTACK:
 			await fighter.attack()
 			transition_state(State.IDLE)
+		State.DEATH:
+			await fighter.death()
