@@ -8,6 +8,7 @@ const SHARD_POSITION_OFFSET = Vector2(24, -1)
 
 @onready var controller : BaseController
 @onready var sprite := $Sprite
+@onready var anim := $Anim
 
 var ref_arena : NetworkArena
 var panel_coords := Vector2i.ZERO
@@ -21,9 +22,9 @@ var is_opposing_team := true
 var health := 3
 
 func play_animation(anim_name, await_animation = false):
-	sprite.play(anim_name)
+	anim.play(anim_name)
 	if await_animation:
-		await sprite.animation_finished
+		await anim.animation_finished
 	
 func move(direction) -> void:
 	var new_coords = panel_coords
@@ -65,8 +66,10 @@ func death():
 	queue_free()
 	
 func flip_sprite():
-	sprite.flip_h = !sprite.flip_h
-	sprite.offset = Vector2(0 if sprite.flip_h else -1, 0.5)
+	sprite.scale = Vector2(1 if sprite.scale.x <= -1 else -1 , 1)
+	#sprite.flip_h = !sprite.flip_h
+	#sprite.offset = Vector2(0 if sprite.flip_h else -1, 0.5)
+	pass
 
 # NOTE: This works as intended but
 # I think I can implement this a little
