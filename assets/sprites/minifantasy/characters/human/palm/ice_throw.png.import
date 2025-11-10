@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://th4rgk4yfkce"
-path="res://.godot/imported/magic_throw.png-9a7ffa663cc0bcde54a42fbb0ed307d0.ctex"
+uid="uid://cu5fyx0uhjqaf"
+path="res://.godot/imported/ice_throw.png-d75802bfd6a77d9223a3ebb1ee35eacf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/minifantasy/characters/human/palm/magic_throw.png"
-dest_files=["res://.godot/imported/magic_throw.png-9a7ffa663cc0bcde54a42fbb0ed307d0.ctex"]
+source_file="res://assets/sprites/minifantasy/characters/human/palm/ice_throw.png"
+dest_files=["res://.godot/imported/ice_throw.png-d75802bfd6a77d9223a3ebb1ee35eacf.ctex"]
 
 [params]
 

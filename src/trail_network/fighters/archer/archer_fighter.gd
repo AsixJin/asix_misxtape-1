@@ -42,12 +42,9 @@ func move(direction) -> void:
 	
 func attack():
 	await play_animation("attack", true)
-	spawn_arrow()
-	await play_animation("release_bow", true)
 	
 func throw_magic():
 	await play_animation("throw_magic", true)
-	spawn_magic()
 	
 func start_charge():
 	play_animation("charge")
@@ -61,7 +58,8 @@ func take_damage():
 		play_animation("idle")
 	
 func death():
-	controller.queue_free()
+	if controller:
+		controller.queue_free()
 	await play_animation("death", true)
 	queue_free()
 	
