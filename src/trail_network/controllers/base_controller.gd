@@ -6,7 +6,8 @@ enum State {
 	MAGIC_ATTACK,
 	CHARGE,
 	HURT,
-	DEATH
+	DEATH,
+	DANCE
 }
 
 var fighter : Fighter

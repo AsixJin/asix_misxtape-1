@@ -10,6 +10,8 @@ func _process(delta: float) -> void:
 			_process_idle_state(delta)
 		State.CHARGE:
 			_process_charge_state(delta)
+		State.DANCE:
+			_process_dance_state(delta)
 			
 func _process_idle_state(_delta: float) -> void:
 	if Input.is_action_just_pressed("dpad_up"):
@@ -25,7 +27,23 @@ func _process_idle_state(_delta: float) -> void:
 		transition_state(State.ATTACK)
 	if Input.is_action_just_pressed("action_2"):
 		transition_state(State.CHARGE)
-		
+	if Input.is_action_just_pressed("select_button"):
+		transition_state(State.DANCE)
+	
+func _process_dance_state(_delta: float) -> void:
+	if Input.is_action_just_pressed("dpad_up"):
+		transition_state(State.IDLE)
+		fighter.move(Vector2i.UP)
+	elif Input.is_action_just_pressed("dpad_down"):
+		transition_state(State.IDLE)
+		fighter.move(Vector2i.DOWN)
+	elif Input.is_action_just_pressed("dpad_left"):
+		transition_state(State.IDLE)
+		fighter.move(Vector2i.LEFT)
+	elif Input.is_action_just_pressed("dpad_right"):
+		transition_state(State.IDLE)
+		fighter.move(Vector2i.RIGHT)
+	
 func _process_charge_state(delta):
 	if Input.is_action_pressed("action_2"):
 		charge_time += delta
@@ -53,3 +71,5 @@ func transition_state(new_state:State) -> void:
 			transition_state(State.IDLE)
 		State.CHARGE:
 			fighter.start_charge()
+		State.DANCE:
+			fighter.dance()

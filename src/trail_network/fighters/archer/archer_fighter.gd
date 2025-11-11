@@ -63,6 +63,9 @@ func death():
 	await play_animation("death", true)
 	queue_free()
 	
+func dance():
+	play_animation("metal_dance")
+	
 func flip_sprite():
 	sprite.scale = Vector2(1 if sprite.scale.x <= -1 else -1 , 1)
 	#sprite.flip_h = !sprite.flip_h
