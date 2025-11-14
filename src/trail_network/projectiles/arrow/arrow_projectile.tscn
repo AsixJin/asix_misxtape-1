@@ -32,8 +32,6 @@ autoplay = "default"
 frame_progress = 0.3248552
 speed_scale = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(7.5, 0)

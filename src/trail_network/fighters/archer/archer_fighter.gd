@@ -86,7 +86,7 @@ func spawn_arrow():
 		arrow.rotate(deg_to_rad(180))
 		
 func spawn_magic():
-	var scene = load(ARROW_SCENE_PATH)
+	var scene = load(SHARD_SCENE_PATH)
 	var shard : Projectile = scene.instantiate()
 	get_parent().add_child(shard)
 	if is_opposing_team:
