@@ -9,6 +9,9 @@ const SHARD_POSITION_OFFSET = Vector2(24, -1)
 @onready var controller : BaseController
 @onready var sprite := $Sprite
 @onready var anim := $Anim
+@onready var magic_sprite = $Sprite/Magic
+
+@export var magic : MagicType
 
 var ref_arena : NetworkArena
 var panel_coords := Vector2i.ZERO
@@ -44,7 +47,9 @@ func attack():
 	await play_animation("attack", true)
 	
 func throw_magic():
-	await play_animation("throw_magic", true)
+	if magic:
+		magic_sprite.texture = magic.throw_texture
+		await play_animation("throw_magic", true)
 	
 func start_charge():
 	play_animation("charge")
@@ -86,11 +91,12 @@ func spawn_arrow():
 		arrow.rotate(deg_to_rad(180))
 		
 func spawn_magic():
-	var scene = load(SHARD_SCENE_PATH)
-	var shard : Projectile = scene.instantiate()
-	get_parent().add_child(shard)
-	if is_opposing_team:
-		shard.global_position = global_position - SHARD_POSITION_OFFSET
-	else:
-		shard.global_position = global_position + (SHARD_POSITION_OFFSET * Vector2(1, -1))
-		shard.rotate(deg_to_rad(180))
+	if magic:
+		var scene = magic.projectile_scene
+		var shard : Projectile = scene.instantiate()
+		get_parent().add_child(shard)
+		if is_opposing_team:
+			shard.global_position = global_position - SHARD_POSITION_OFFSET
+		else:
+			shard.global_position = global_position + (SHARD_POSITION_OFFSET * Vector2(1, -1))
+			shard.rotate(deg_to_rad(180))

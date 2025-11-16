@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MagicType" load_steps=4 format=3 uid="uid://bgydcvnhkind6"]
+
+[ext_resource type="Script" uid="uid://c3hm6lokb0acc" path="res://src/trail_network/magic_types/magic_type.gd" id="1_6xw1r"]
+[ext_resource type="PackedScene" uid="uid://dugvm3xxtt4vd" path="res://src/trail_network/projectiles/fire_projectile/fire_projectile.tscn" id="1_oly7r"]
+[ext_resource type="Texture2D" uid="uid://b2u7v2oh22woc" path="res://assets/sprites/minifantasy/misc/fire_throw.png" id="2_hb1eb"]
+
+[resource]
+script = ExtResource("1_6xw1r")
+throw_texture = ExtResource("2_hb1eb")
+projectile_scene = ExtResource("1_oly7r")
+metadata/_custom_type_script = "uid://c3hm6lokb0acc"

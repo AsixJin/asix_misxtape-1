@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dugvm3xxtt4vd"]
+
+[ext_resource type="Script" uid="uid://dffnv6uvnv0hh" path="res://src/trail_network/projectiles/arrow/arrow_projectile.gd" id="1_20sp0"]
+[ext_resource type="Texture2D" uid="uid://b5eoq1m7ux7go" path="res://assets/sprites/minifantasy/misc/fire_projectile.png" id="1_aiyph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2cm2"]
+size = Vector2(6, 8)
+
+[node name="FireProjectile" type="Area2D"]
+rotation = 3.1415927
+script = ExtResource("1_20sp0")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_aiyph")
+region_enabled = true
+region_rect = Rect2(83, 45, 13, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(4, -3.496911e-07)
+shape = SubResource("RectangleShape2D_j2cm2")
