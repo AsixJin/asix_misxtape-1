@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MagicType" load_steps=6 format=3 uid="uid://dkurgape4ha3w"]
+
+[ext_resource type="Texture2D" uid="uid://c3360eussdx8m" path="res://assets/sprites/minifantasy/misc/wind_charge_base.png" id="1_rb1pa"]
+[ext_resource type="Script" uid="uid://c3hm6lokb0acc" path="res://src/trail_network/magic_types/magic_type.gd" id="1_sijjw"]
+[ext_resource type="Texture2D" uid="uid://dv6vpgfbc3f4t" path="res://assets/sprites/minifantasy/misc/wind_charge_effect.png" id="2_hhr2r"]
+[ext_resource type="PackedScene" uid="uid://b0f6la7its4ye" path="res://src/trail_network/projectiles/wind_projectile/wind_projectile.tscn" id="3_dq21x"]
+[ext_resource type="Texture2D" uid="uid://iotuv87s5fe5" path="res://assets/sprites/minifantasy/misc/wind_throw.png" id="5_v7dpk"]
+
+[resource]
+script = ExtResource("1_sijjw")
+type = 2
+charge_base_texture = ExtResource("1_rb1pa")
+charge_effect_texture = ExtResource("2_hhr2r")
+throw_texture = ExtResource("5_v7dpk")
+projectile_scene = ExtResource("3_dq21x")
+metadata/_custom_type_script = "uid://c3hm6lokb0acc"

@@ -53,7 +53,7 @@ func throw_magic():
 	
 func switch_magic():
 	if magic.type == MagicType.Type.ICE:
-		magic = load("res://src/trail_network/magic_types/fire_magic.tres")
+		magic = load("res://src/trail_network/magic_types/wind_magic.tres")
 	else:
 		magic = load("res://src/trail_network/magic_types/ice_magic.tres")
 	

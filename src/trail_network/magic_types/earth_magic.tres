@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MagicType" load_steps=2 format=3 uid="uid://bu0oh7wp0n7yh"]
+
+[ext_resource type="Script" uid="uid://c3hm6lokb0acc" path="res://src/trail_network/magic_types/magic_type.gd" id="1_u8c4j"]
+
+[resource]
+script = ExtResource("1_u8c4j")
+type = 3
+metadata/_custom_type_script = "uid://c3hm6lokb0acc"

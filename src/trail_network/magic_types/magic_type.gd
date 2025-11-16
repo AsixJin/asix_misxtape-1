@@ -2,7 +2,9 @@ class_name MagicType extends Resource
 
 enum Type {
 	ICE,
-	FIRE
+	FIRE,
+	WIND,
+	EARTH
 }
 
 @export var type : Type

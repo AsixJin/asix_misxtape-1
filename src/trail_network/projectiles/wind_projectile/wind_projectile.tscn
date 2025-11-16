@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0f6la7its4ye"]
+
+[ext_resource type="Texture2D" uid="uid://cw25p72eh7w5l" path="res://assets/sprites/minifantasy/misc/wind_projectile.png" id="1_wbp5w"]
+[ext_resource type="Script" uid="uid://dffnv6uvnv0hh" path="res://src/trail_network/projectiles/arrow/arrow_projectile.gd" id="2_vljtt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vljtt"]
+size = Vector2(2, 6)
+
+[node name="wind_projectile" type="Area2D"]
+script = ExtResource("2_vljtt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 3.1415927
+texture = ExtResource("1_wbp5w")
+region_enabled = true
+region_rect = Rect2(86, 44, 9, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_vljtt")
