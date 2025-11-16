@@ -1,6 +1,6 @@
 class_name FighterController extends BaseController
 
-const MIN_CHARGE_TIME = 2.0
+const MIN_CHARGE_TIME = 1
 
 var charge_time := 0.0
 		
@@ -29,6 +29,8 @@ func _process_idle_state(_delta: float) -> void:
 		transition_state(State.CHARGE)
 	if Input.is_action_just_pressed("select_button"):
 		transition_state(State.DANCE)
+	if Input.is_action_just_pressed("start_button"):
+		fighter.switch_magic()
 	
 func _process_dance_state(_delta: float) -> void:
 	if Input.is_action_just_pressed("dpad_up"):
@@ -48,6 +50,7 @@ func _process_charge_state(delta):
 	if Input.is_action_pressed("action_2"):
 		charge_time += delta
 	elif Input.is_action_just_released("action_2"):
+		fighter.hide_charge_sprites()
 		if charge_time >= MIN_CHARGE_TIME:
 			await fighter.throw_magic()
 		print(str("Charge Time: ", charge_time))

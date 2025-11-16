@@ -51,7 +51,16 @@ func throw_magic():
 		magic_sprite.texture = magic.throw_texture
 		await play_animation("throw_magic", true)
 	
+func switch_magic():
+	if magic.type == MagicType.Type.ICE:
+		magic = load("res://src/trail_network/magic_types/fire_magic.tres")
+	else:
+		magic = load("res://src/trail_network/magic_types/ice_magic.tres")
+	
 func start_charge():
+	if magic:
+		$Sprite/ChrageBase.texture = magic.charge_base_texture
+		$Sprite/ChargeEffect.texture = magic.charge_effect_texture
 	play_animation("charge")
 	
 func take_damage():
@@ -76,6 +85,10 @@ func flip_sprite():
 	#sprite.flip_h = !sprite.flip_h
 	#sprite.offset = Vector2(0 if sprite.flip_h else -1, 0.5)
 	pass
+
+func hide_charge_sprites():
+	$Sprite/ChargeEffect.hide()
+	$Sprite/ChrageBase.hide()
 
 # NOTE: This works as intended but
 # I think I can implement this a little
