@@ -1,8 +1,16 @@
-[gd_resource type="Resource" script_class="MagicType" load_steps=2 format=3 uid="uid://bu0oh7wp0n7yh"]
+[gd_resource type="Resource" script_class="MagicType" load_steps=6 format=3 uid="uid://bu0oh7wp0n7yh"]
 
+[ext_resource type="Texture2D" uid="uid://b50w05yrrp7vp" path="res://assets/sprites/minifantasy/misc/earth_charge_base.png" id="1_mecp8"]
 [ext_resource type="Script" uid="uid://c3hm6lokb0acc" path="res://src/trail_network/magic_types/magic_type.gd" id="1_u8c4j"]
+[ext_resource type="Texture2D" uid="uid://d3vyl5ircd5qp" path="res://assets/sprites/minifantasy/misc/earth_charge_effect.png" id="2_8pp6i"]
+[ext_resource type="PackedScene" uid="uid://cvtb7dxdormyg" path="res://src/trail_network/projectiles/earth_projectile/earth_projectile.tscn" id="3_ihovu"]
+[ext_resource type="Texture2D" uid="uid://wafotmtqhvi3" path="res://assets/sprites/minifantasy/misc/earth_throw.png" id="5_te6ey"]
 
 [resource]
 script = ExtResource("1_u8c4j")
 type = 3
+charge_base_texture = ExtResource("1_mecp8")
+charge_effect_texture = ExtResource("2_8pp6i")
+throw_texture = ExtResource("5_te6ey")
+projectile_scene = ExtResource("3_ihovu")
 metadata/_custom_type_script = "uid://c3hm6lokb0acc"
