@@ -23,6 +23,7 @@ var panel_id : String :
 var is_opposing_team := true
 
 var health := 3
+var selected_magic = 0
 
 func play_animation(anim_name, await_animation = false):
 	anim.play(anim_name)
@@ -52,10 +53,16 @@ func throw_magic():
 		await play_animation("throw_magic", true)
 	
 func switch_magic():
-	if magic.type == MagicType.Type.ICE:
-		magic = load("res://src/trail_network/magic_types/earth_magic.tres")
-	else:
-		magic = load("res://src/trail_network/magic_types/ice_magic.tres")
+	selected_magic = 0 if selected_magic >= 3 else selected_magic + 1
+	var new_magic = load("res://src/trail_network/magic_types/ice_magic.tres")
+	match selected_magic:
+		1:
+			new_magic = load("res://src/trail_network/magic_types/earth_magic.tres")
+		2:
+			new_magic = load("res://src/trail_network/magic_types/fire_magic.tres")
+		3:
+			new_magic = load("res://src/trail_network/magic_types/wind_magic.tres")
+	magic = new_magic
 	
 func start_charge():
 	if magic:

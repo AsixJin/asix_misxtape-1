@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bquopdk5xru8a" path="res://src/trail_network/fighters/archer/archer_fighter.gd" id="1_gavak"]
 [ext_resource type="Texture2D" uid="uid://cgvxiquw4pgye" path="res://assets/sprites/minifantasy/characters/human/palm/idle.png" id="1_qoru8"]
 [ext_resource type="Texture2D" uid="uid://dylp8haj6fewa" path="res://assets/sprites/minifantasy/characters/human/palm/bow_attack.png" id="2_eagqu"]
-[ext_resource type="Resource" uid="uid://bgydcvnhkind6" path="res://src/trail_network/magic_types/fire_magic.tres" id="2_g8o0g"]
+[ext_resource type="Resource" uid="uid://c0ktlli5non66" path="res://src/trail_network/magic_types/ice_magic.tres" id="2_g8o0g"]
 [ext_resource type="Texture2D" uid="uid://b8b568m885ak8" path="res://assets/sprites/minifantasy/misc/ice_throw.png" id="3_baoas"]
 [ext_resource type="Texture2D" uid="uid://coteeieqm7e8r" path="res://assets/sprites/minifantasy/characters/human/palm/souldie.png" id="3_ei7tu"]
 [ext_resource type="Texture2D" uid="uid://chevudsux8vi3" path="res://assets/sprites/minifantasy/characters/human/palm/dmg.png" id="3_uyrjt"]
