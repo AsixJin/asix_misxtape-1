@@ -22,7 +22,7 @@ func create_fighter(is_player = false):
 		fighter.add_child(FighterController.new())
 		player_fighter = fighter
 	else:
-		move_fighter(fighter, Vector2i(4, 1))
+		move_fighter(fighter, Vector2i(3, 1))
 		fighter.add_child(EnemyController.new())
 		
 func check_panel(id : String):
