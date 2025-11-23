@@ -7,14 +7,16 @@
 size = Vector2(2, 6)
 
 [node name="wind_projectile" type="Area2D"]
+rotation = 3.1415927
 script = ExtResource("2_vljtt")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-rotation = 3.1415927
 texture = ExtResource("1_wbp5w")
 region_enabled = true
 region_rect = Rect2(86, 44, 9, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_vljtt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

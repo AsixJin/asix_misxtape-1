@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://codnnhbqt6k6g" path="res://assets/sprites/minifantasy/misc/ice_shard.png" id="2_y81j3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3twc"]
-size = Vector2(7, 5)
+size = Vector2(1, 5)
 
 [node name="IceShard" type="Area2D"]
 rotation = 3.1415927
@@ -17,6 +17,7 @@ region_enabled = true
 region_rect = Rect2(0, 46, 16, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(4.5, 0)
+position = Vector2(-1.5, -8.742278e-08)
 shape = SubResource("RectangleShape2D_c3twc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

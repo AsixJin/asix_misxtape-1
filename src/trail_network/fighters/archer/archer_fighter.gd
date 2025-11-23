@@ -4,7 +4,8 @@ const ARROW_SCENE_PATH = "res://src/trail_network/projectiles/arrow/arrow_projec
 const ARROW_POSITION_OFFSET = Vector2(-2, -1)
 
 const SHARD_SCENE_PATH = "res://src/trail_network/projectiles/ice_shard/ice_shard.tscn"
-const SHARD_POSITION_OFFSET = Vector2(16, -1)
+#const SHARD_POSITION_OFFSET = Vector2(-9.5, 0.5)
+const SHARD_POSITION_OFFSET = Vector2(-8, 0.5)
 
 @onready var controller : BaseController
 @onready var sprite := $Sprite
@@ -118,5 +119,5 @@ func spawn_magic():
 		if is_opposing_team:
 			shard.global_position = global_position - SHARD_POSITION_OFFSET
 		else:
-			shard.global_position = global_position + (SHARD_POSITION_OFFSET * Vector2(1, -1))
+			shard.global_position = global_position + (SHARD_POSITION_OFFSET * Vector2(-1, -1))
 			shard.rotate(deg_to_rad(180))
