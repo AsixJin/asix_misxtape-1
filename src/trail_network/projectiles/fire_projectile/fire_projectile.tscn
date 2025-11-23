@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://b5eoq1m7ux7go" path="res://assets/sprites/minifantasy/misc/fire_projectile.png" id="1_aiyph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2cm2"]
-size = Vector2(6, 8)
+size = Vector2(3, 6)
 
 [node name="FireProjectile" type="Area2D"]
 rotation = 3.1415927
 script = ExtResource("1_20sp0")
+speed = 200
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_aiyph")
@@ -16,7 +17,7 @@ region_enabled = true
 region_rect = Rect2(83, 45, 13, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -3.496911e-07)
+position = Vector2(3, -2.6226832e-07)
 shape = SubResource("RectangleShape2D_j2cm2")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
